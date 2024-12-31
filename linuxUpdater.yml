@@ -1,0 +1,10 @@
+---
+# Linux package updater
+- name: Update all packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Update packages
+      ansible.builtin.apt:
+        update_cache: true
+        upgrade: true

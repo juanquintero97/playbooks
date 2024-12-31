@@ -1,0 +1,12 @@
+---
+- name: Ping all hosts
+  hosts: all
+  become: false
+  gather_facts: false
+  tasks:
+    - name: Ping using FQCN
+      ansible.builtin.ping:
+      register: ping_result
+    - name: Display ping result
+      ansible.builtin.debug:
+        var: ping_result
