@@ -5,9 +5,8 @@
   become: true
   tasks:
     - name: Get linux release
-      ansible.builtin.ansible_module:
-        module: "setup"
-        args: "filter=ansible_distribution_release"
+      ansible.builtin.setup:
+        filter: "ansible_distribution_release"
       register: release
     - name: Display release
       ansible.builtin.debug:
