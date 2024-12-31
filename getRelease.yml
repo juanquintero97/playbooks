@@ -1,13 +1,12 @@
 ---
-# Get linux release
-- name: Get linux release
+# Get linux ditribution release
+- name: Get release
   hosts: all
-  become: true
   tasks:
-    - name: Get linux release
-      ansible.builtin.setup:
-        filter: "ansible_distribution_release"
-      register: release
+    - name: Get release
+      ansible.builtin.command:
+        cmd: cat /etc/*-release
+        register: release
     - name: Display release
       ansible.builtin.debug:
         var: release

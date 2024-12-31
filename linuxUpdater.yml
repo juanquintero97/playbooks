@@ -4,7 +4,7 @@
   hosts: all
   become: true
   tasks:
-    - name: Update packages
-      ansible.builtin.apt:
+    - name: Update packages using ansible.builtin.yum
+      ansible.builtin.yum:
         update_cache: true
         upgrade: true
