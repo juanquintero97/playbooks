@@ -4,9 +4,9 @@
   hosts: all
   tasks:
     - name: Get release
-      ansible.builtin.command:
-        cmd: cat /etc/*-release
-        register: release
+      ansible.builtin.shell: cat /etc/*-release
+      register: release
+      changed_when: false
     - name: Display release
       ansible.builtin.debug:
         var: release
