@@ -11,5 +11,4 @@
     - name: Update using dnf
       ansible.builtin.dnf:
         name: "*"
-        state: present
-        update_cache: true
+        state: latest
