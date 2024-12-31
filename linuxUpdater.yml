@@ -1,10 +1,15 @@
 ---
-# Linux package updater
-- name: Update all packages
+# Linux package updater using yum and dnf
+- name: Update packages
   hosts: all
   become: true
   tasks:
-    - name: Update packages using ansible.builtin.yum
+    - name: Update using yum
       ansible.builtin.yum:
-        update_cache: true
-        upgrade: true
+        name: "*"
+        state: latest
+    - name: Update using dnf
+      ansible.builtin.dnf:
+        name: "*"
+        state: present
+        update_cache: yes
